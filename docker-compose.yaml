@@ -1,0 +1,20 @@
+version: "3"
+services:
+  tweet-delete:
+    container_name: tweet-delete
+    build: ./
+    working_dir: ${PROJECT_DIR}
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}
+      TWITTER_API_KEY: ${TWITTER_API_KEY}
+      TWITTER_API_SECRET: ${TWITTER_API_SECRET}
+      TWITTER_ACCESS_TOKEN: ${TWITTER_ACCESS_TOKEN}
+      TWITTER_ACCESS_TOKEN_SECRET: ${TWITTER_ACCESS_TOKEN_SECRET}
+      PROJECT_DIR: ${PROJECT_DIR}
+    volumes:
+      - ${PROJECT_DIR}:${PROJECT_DIR}
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh
