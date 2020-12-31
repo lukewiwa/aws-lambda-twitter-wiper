@@ -20,7 +20,7 @@ export class TweetDeleteStack extends cdk.Stack {
         TWITTER_ACCESS_TOKEN_SECRET:
           process.env.TWITTER_ACCESS_TOKEN_SECRET ?? "",
       },
-      timeout: Duration.seconds(30),
+      timeout: Duration.seconds(60),
     });
 
     const TweetDeleteFnTarget = new LambdaFunction(TweetDeleteFn);
