@@ -3,13 +3,13 @@ import logging
 
 from twython import Twython
 
-DEBUG = bool(os.getenv("DEBUG", False))
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-if DEBUG:
-    logger.addHandler(logging.StreamHandler())
+if not logger.hasHandlers():
+    handler = logging.StreamHandler()
+    handler.setLevel(logging.INFO)
+    logger.addHandler(handler)
 
 
 TWITTER_API_KEY = os.getenv("TWITTER_API_KEY")
