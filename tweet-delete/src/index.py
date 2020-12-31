@@ -3,17 +3,19 @@ import logging
 
 from twython import Twython
 
+DEBUG = bool(os.getenv("DEBUG", False))
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-logger.addHandler(logging.StreamHandler())
+
+if DEBUG:
+    logger.addHandler(logging.StreamHandler())
 
 
 TWITTER_API_KEY = os.getenv("TWITTER_API_KEY")
 TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET")
 TWITTER_ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN")
 TWITTER_ACCESS_TOKEN_SECRET = os.getenv("TWITTER_ACCESS_TOKEN_SECRET")
-
-TWITTER_BEARER_TOKEN = os.getenv("TWITTER_BEARER_TOKEN")
 
 
 twitter = Twython(
