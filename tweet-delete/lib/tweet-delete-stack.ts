@@ -28,7 +28,7 @@ export class TweetDeleteStack extends cdk.Stack {
     new Rule(this, "TweetDeleteSchedule", {
       schedule: Schedule.cron({
         minute: "23",
-        hour: "3",
+        hour: "16",
         day: "*",
         month: "*",
       }),

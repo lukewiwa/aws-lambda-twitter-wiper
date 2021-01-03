@@ -17,13 +17,12 @@ An over-engineered implementation of a cloud function to periodically delete you
 
 ## Setup
 
-Use the `.env.example` file to create a `.env` file with the necessary environment variables. To allow docker to build the lambda function we need to mirror your local directory structure in the docker container so make sure to add your present working directory found using the `pwd` command. To jump into a shell you can use vscode devcontainers or simply run the command:
+Use the `.env.example` file to create a `.env` file with the necessary environment variables. To allow docker to build the lambda function we need to mirror your local directory structure in the docker container, hence the $PWD variable is necessary in the `.env` file. To jump into a shell you can use vscode devcontainers or simply run the command:
 
 ```bash
 make shell
 ```
 
-**Note:** If you wish to run this inside a vscode dev container you will have to manually add the `pwd` to the `workspaceFolder` key. eg `"workspaceFolder": "/Users/user/repos/delete-lukewiwa-tweets"
 
 # Deploy
 

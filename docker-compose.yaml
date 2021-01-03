@@ -14,7 +14,7 @@ services:
       TWITTER_ACCESS_TOKEN_SECRET: ${TWITTER_ACCESS_TOKEN_SECRET}
       PROJECT_DIR: ${PROJECT_DIR}
     volumes:
-      - ${PROJECT_DIR}:${PROJECT_DIR}
-      - /var/run/docker.sock:/var/run/docker.sock
+      - .:${PROJECT_DIR}:cached
       - ./entrypoint.sh:/entrypoint.sh
+      - /var/run/docker.sock:/var/run/docker.sock
     entrypoint: /entrypoint.sh
