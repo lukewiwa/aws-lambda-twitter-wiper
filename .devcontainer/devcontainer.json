@@ -17,7 +17,13 @@
 	"workspaceFolder": "${localWorkspaceFolder}",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.shell.linux": null
+		"terminal.integrated.shell.linux": null,
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.formatting.provider": "black",
+		"python.linting.enabled": true,
+		"cSpell.words": [
+			"twython"
+		]
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -26,7 +32,14 @@
 		"ms-azuretools.vscode-docker",
 		"ms-python.python",
 		"ms-python.vscode-pylance",
-		"esbenp.prettier-vscode"
+		"esbenp.prettier-vscode",
+		"github.vscode-pull-request-github",
+		"exiasr.hadolint",
+		"yzhang.markdown-all-in-one",
+		"mgesbert.python-path",
+		"timonwong.shellcheck",
+		"visualstudioexptteam.vscodeintellicode",
+		"eamodio.gitlens"
 	]
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
