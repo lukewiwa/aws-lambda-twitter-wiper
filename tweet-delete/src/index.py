@@ -27,7 +27,7 @@ twitter = Twython(
 
 SCREEN_NAME = twitter.verify_credentials()["screen_name"]
 
-TWEET_LIMIT = 20
+TWEET_LIMIT = 40
 
 
 def handler(event, context):
