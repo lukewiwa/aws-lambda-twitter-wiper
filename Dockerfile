@@ -4,7 +4,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl -sSL https://get.docker.com | sh -
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get install -y nodejs
+RUN apt-get install -y --no-install-recommends nodejs openssh-client
 
 # install hadolint
 ARG HADOLINT_VERSION="v1.19.0"
