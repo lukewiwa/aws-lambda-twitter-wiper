@@ -32,6 +32,19 @@ TWEET_LIMIT = 40
 
 def handler(event, context):
 
+    # Remove all favourites
+    fav_count = 1
+    while fav_count > 0:
+        favs = twitter.get_favorites(count=200)
+        for fav in favs:
+            fav_id = fav["id"]
+            fav_text = fav["text"]
+            twitter.destroy_favorite(id=fav_id)
+            logger.info(f"Unliked: <{fav_id}> '{fav_text}'")
+
+        fav_count = len(twitter.get_favorites(count=1))
+
+    # Delete all but hte most recent tweets
     recent_tweets = twitter.get_user_timeline(
         screen_name=SCREEN_NAME, count=TWEET_LIMIT
     )
@@ -60,14 +73,3 @@ def handler(event, context):
                 1:
             ]
         )
-
-    fav_count = 1
-    while fav_count > 0:
-        favs = twitter.get_favorites(count=200)
-        for fav in favs:
-            fav_id = fav["id"]
-            fav_text = fav["text"]
-            twitter.destroy_favorite(id=fav_id)
-            logger.info(f"Unliked: <{fav_id}> '{fav_text}'")
-
-        fav_count = len(twitter.get_favorites(count=1))
