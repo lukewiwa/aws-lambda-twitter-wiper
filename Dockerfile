@@ -1,4 +1,4 @@
-FROM python:3.8.6
+FROM python:3.8
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN curl -sSL https://get.docker.com | sh -
