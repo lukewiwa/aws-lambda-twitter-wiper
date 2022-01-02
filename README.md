@@ -17,7 +17,7 @@ An over-engineered implementation of a cloud function to periodically delete you
 
 ## Setup
 
-Use the `.env.example` file to create a `.env` file with the necessary environment variables. To allow docker to build the lambda function we need to mirror your local directory structure in the docker container, hence the $PWD variable is necessary in the `.env` file. To jump into a shell you can use vscode devcontainers or simply run the command:
+Use the `.env.example` file to create a `.env` file with the necessary environment variables. To allow docker to build the lambda function we need to mirror your local directory structure in the docker container, therefore it is necessary to set the `PROJECT_DIR` variable in the `.env` file as the absolute path to your local repository. To jump into a shell you can use vscode devcontainers or simply run the command:
 
 ```bash
 make shell
@@ -29,5 +29,6 @@ make shell
 ```bash
 cd tweet-delete
 npm run synth
+npm run bootstrap  # Required if this is your first CDK project in your AWS account
 npm run deploy
 ```
